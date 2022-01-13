@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <name>Extra Options</name>
+    <directory>extra options</directory>
+    <id>2717446402</id>
+    <description>This mod provides a UI for some extra options the game provides in the options.ini file that aren't available in the default options menu.
+
+The API doesn't provide access to everything in the options.ini file. This is just taking advantage of what's available.
+
+Mod Config Menu is required to change settings.</description>
+    <version>1.1</version>
+    <visibility>Public</visibility>
+    <tag id="Lua"/>
+    <tag id="Tweaks"/>
+</metadata>

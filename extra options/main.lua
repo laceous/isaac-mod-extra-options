@@ -31,7 +31,8 @@ function mod:setupModConfigMenu()
       Minimum = 0,
       Maximum = 2,
       Display = function()
-        return 'Console Font: ' .. (mod.consoleFonts[Options.ConsoleFont] ~= nil and mod.consoleFonts[Options.ConsoleFont] or Options.ConsoleFont)
+        local consoleFont = mod.consoleFonts[Options.ConsoleFont]
+        return 'Console Font: ' .. (consoleFont ~= nil and consoleFont or Options.ConsoleFont)
       end,
       OnChange = function(n)
         Options.ConsoleFont = n

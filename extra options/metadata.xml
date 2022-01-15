@@ -7,8 +7,10 @@
 
 The API doesn't provide access to everything in the options.ini file. This is just taking advantage of what's available.
 
+Options that can be set: ConsoleFont, DebugConsoleEnabled, FadedConsoleDisplay, MaxRenderScale, MaxScale, MouseControl, PauseOnFocusLost, RumbleEnabled, SaveCommandHistory, UseBorderlessFullscreen, VSync
+
 Mod Config Menu is required to change settings.</description>
-    <version>1.1</version>
+    <version>1.2</version>
     <visibility>Public</visibility>
     <tag id="Lua"/>
     <tag id="Tweaks"/>

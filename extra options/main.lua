@@ -1,5 +1,6 @@
 local mod = RegisterMod('Extra Options', 1)
 
+mod.announcerVoiceModes = { [0] = 'random', [1] = 'off', [2] = 'always on' }
 mod.consoleFonts = { [0] = 'default', [1] = 'small', [2] = 'tiny' }
 
 function mod:setupModConfigMenu()
@@ -152,23 +153,6 @@ function mod:setupModConfigMenu()
     {
       Type = ModConfigMenu.OptionType.BOOLEAN,
       CurrentSetting = function()
-        return Options.PauseOnFocusLost
-      end,
-      Display = function()
-        return 'Pause On Focus Lost: ' .. (Options.PauseOnFocusLost and 'on' or 'off')
-      end,
-      OnChange = function(b)
-        Options.PauseOnFocusLost = b
-      end,
-      Info = { 'Default: on' }
-    }
-  )
-  ModConfigMenu.AddSetting(
-    mod.Name,
-    'Screen',
-    {
-      Type = ModConfigMenu.OptionType.BOOLEAN,
-      CurrentSetting = function()
         return Options.UseBorderlessFullscreen
       end,
       Display = function()
@@ -177,7 +161,7 @@ function mod:setupModConfigMenu()
       OnChange = function(b)
         Options.UseBorderlessFullscreen = b
       end,
-      Info = { 'Default: off' }
+      Info = { 'Default: off', 'Takes effect when fullscreen is enabled' }
     }
   )
   ModConfigMenu.AddSetting(
@@ -200,6 +184,43 @@ function mod:setupModConfigMenu()
   ModConfigMenu.AddSpace(mod.Name, 'Screen')
   ModConfigMenu.AddText(mod.Name, 'Screen', 'Press F to toggle fullscreen')
   ModConfigMenu.AddText(mod.Name, 'Screen', 'to apply the scale settings')
+  ModConfigMenu.AddSetting(
+    mod.Name,
+    'Misc',
+    {
+      Type = ModConfigMenu.OptionType.NUMBER,
+      CurrentSetting = function()
+        return Options.AnnouncerVoiceMode -- 0, 1, 2
+      end,
+      Minimum = 0,
+      Maximum = 2,
+      Display = function()
+        local announcerVoiceMode = mod.announcerVoiceModes[Options.AnnouncerVoiceMode]
+        return 'Announcer Voice Mode: ' .. (announcerVoiceMode ~= nil and announcerVoiceMode or Options.AnnouncerVoiceMode)
+      end,
+      OnChange = function(n)
+        Options.AnnouncerVoiceMode = n
+      end,
+      Info = { 'Default: random' }
+    }
+  )
+  ModConfigMenu.AddSetting(
+    mod.Name,
+    'Misc',
+    {
+      Type = ModConfigMenu.OptionType.BOOLEAN,
+      CurrentSetting = function()
+        return Options.PauseOnFocusLost
+      end,
+      Display = function()
+        return 'Pause On Focus Lost: ' .. (Options.PauseOnFocusLost and 'on' or 'off')
+      end,
+      OnChange = function(b)
+        Options.PauseOnFocusLost = b
+      end,
+      Info = { 'Default: on' }
+    }
+  )
 end
 
 if ModConfigMenu then

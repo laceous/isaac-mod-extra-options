@@ -3,7 +3,11 @@ local mod = RegisterMod('Extra Options', 1)
 mod.announcerVoiceModes = { [0] = 'random', [1] = 'off', [2] = 'always on' }
 mod.consoleFonts = { [0] = 'default', [1] = 'small', [2] = 'tiny' }
 
+-- start ModConfigMenu --
 function mod:setupModConfigMenu()
+  for _, v in ipairs({ 'Console', 'Input', 'Screen', 'Misc' }) do
+    ModConfigMenu.RemoveSubcategory(mod.Name, v)
+  end
   ModConfigMenu.AddSetting(
     mod.Name,
     'Console',
@@ -222,6 +226,7 @@ function mod:setupModConfigMenu()
     }
   )
 end
+-- end ModConfigMenu --
 
 if ModConfigMenu then
   mod:setupModConfigMenu()

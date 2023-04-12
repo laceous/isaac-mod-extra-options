@@ -37,12 +37,12 @@ function mod:setupModConfigMenu()
       Maximum = 2,
       Display = function()
         local consoleFont = mod.consoleFonts[Options.ConsoleFont]
-        return 'Console Font: ' .. (consoleFont ~= nil and consoleFont or Options.ConsoleFont)
+        return 'Console Font: ' .. (consoleFont or Options.ConsoleFont)
       end,
       OnChange = function(n)
         Options.ConsoleFont = n
       end,
-      Info = { 'Default: default' }
+      Info = { 'Default: default', 'Font size' }
     }
   )
   ModConfigMenu.AddSetting(
@@ -110,7 +110,7 @@ function mod:setupModConfigMenu()
       OnChange = function(b)
         Options.RumbleEnabled = b
       end,
-      Info = { 'Default: on' }
+      Info = { 'Default: on', 'Controller rumble' } -- doesn't seem to work?
     }
   )
   ModConfigMenu.AddSetting(
@@ -182,7 +182,7 @@ function mod:setupModConfigMenu()
       OnChange = function(b)
         Options.VSync = b
       end,
-      Info = { 'Default: on' }
+      Info = { 'Default: on', 'Vertical sync' } -- can help with the game running too fast
     }
   )
   ModConfigMenu.AddSpace(mod.Name, 'Screen')
@@ -200,12 +200,12 @@ function mod:setupModConfigMenu()
       Maximum = 2,
       Display = function()
         local announcerVoiceMode = mod.announcerVoiceModes[Options.AnnouncerVoiceMode]
-        return 'Announcer Voice Mode: ' .. (announcerVoiceMode ~= nil and announcerVoiceMode or Options.AnnouncerVoiceMode)
+        return 'Announcer Voice Mode: ' .. (announcerVoiceMode or Options.AnnouncerVoiceMode)
       end,
       OnChange = function(n)
         Options.AnnouncerVoiceMode = n
       end,
-      Info = { 'Default: random' }
+      Info = { 'Default: random', 'Controls how often the announcer speaks' } -- cards/runes/pills
     }
   )
   ModConfigMenu.AddSetting(
@@ -222,7 +222,7 @@ function mod:setupModConfigMenu()
       OnChange = function(b)
         Options.PauseOnFocusLost = b
       end,
-      Info = { 'Default: on' }
+      Info = { 'Default: on', 'Automatically pause when the game loses focus' }
     }
   )
 end

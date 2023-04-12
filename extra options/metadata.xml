@@ -10,7 +10,7 @@ The API doesn't provide access to everything in the options.ini file. This is ju
 Options that can be set: AnnouncerVoiceMode, ConsoleFont, DebugConsoleEnabled, FadedConsoleDisplay, MaxRenderScale, MaxScale, MouseControl, PauseOnFocusLost, RumbleEnabled, SaveCommandHistory, UseBorderlessFullscreen, VSync
 
 Mod Config Menu is required to change settings.</description>
-    <version>1.4</version>
+    <version>1.5</version>
     <visibility>Public</visibility>
     <tag id="Lua"/>
     <tag id="Tweaks"/>
